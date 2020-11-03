@@ -1,0 +1,48 @@
+{
+  "version": "2.0",
+  "envId": "{{env.ENV_ID}}",
+  "framework": {
+    "name": "nextcloud",
+    "plugins": {
+      "client": {
+        "use": "@cloudbase/framework-plugin-container",
+        "inputs": {
+          "cpu": "0.5",
+          "mem": "1",
+          "serviceName": "nextcloud",
+          "servicePath": "/",
+          "uploadType": "image",
+          "containerPort": 80,
+          "imageInfo": {
+            "imageUrl": "nextcloud:20"
+          },
+          "envVariables": {
+            "MYSQL_HOST": "{{env.DB_IP}}:{{env.DB_PORT}}",
+            "MYSQL_DATABASE": "nextcloud"
+          },
+          "volumeMounts": {
+            "/var/www/html": "NEXTCLOUD_CFS"
+          }
+        }
+      }
+    },
+    "requirement": {
+      "addons": [
+        {
+          "type": "CFS",
+          "name": "NEXTCLOUD_CFS"
+        },
+        {
+          "type": "CynosDB",
+          "name": "Nextcloud",
+          "envMap": {
+            "IP": "DB_IP",
+            "PORT": "DB_PORT",
+            "USERNAME": "MYSQL_USER",
+            "PASSWORD": "MYSQL_PASSWORD"
+          }
+        }
+      ]
+    }
+  }
+}
