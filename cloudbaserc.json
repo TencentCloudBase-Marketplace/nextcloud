@@ -21,7 +21,7 @@
             "MYSQL_DATABASE": "nextcloud"
           },
           "volumeMounts": {
-            "/var/www/html": "NEXTCLOUD_CFS"
+            "/var/www/html": "nextcloud-cfs"
           }
         }
       }
@@ -30,7 +30,7 @@
       "addons": [
         {
           "type": "CFS",
-          "name": "NEXTCLOUD_CFS"
+          "name": "nextcloud-cfs"
         },
         {
           "type": "CynosDB",
