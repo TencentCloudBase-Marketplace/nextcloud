@@ -14,7 +14,7 @@
           "uploadType": "image",
           "containerPort": 80,
           "imageInfo": {
-            "imageUrl": "nextcloud:20"
+            "imageUrl": "ccr.ccs.tencentyun.com/tcb_public/nextcloud:20"
           },
           "envVariables": {
             "MYSQL_HOST": "{{env.DB_IP}}:{{env.DB_PORT}}",
